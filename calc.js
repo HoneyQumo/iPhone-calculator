@@ -48,7 +48,7 @@ buttons.addEventListener('click', (e) => {
             b += key;
             result.textContent = b;
         }
-        console.log(a, b, sign);
+        // console.log(a, b, sign);
         return;
     }
 
@@ -60,7 +60,7 @@ buttons.addEventListener('click', (e) => {
         }
         sign = key;
         result.textContent = sign;
-        console.log(a, b, sign);
+        // console.log(a, b, sign);
         return;
     }
 
@@ -78,13 +78,18 @@ buttons.addEventListener('click', (e) => {
                 a = a * b;
                 break;
             case '÷':
+                if (b === '0') {
+                    result.textContent = 'Ошибка';
+                    a = '';
+                    b = '';
+                    sign = '';
+                    return;
+                }
                 a = a / b;
                 break;
         }
         finish = true;
         result.textContent = a;
-        console.log(a, b, sign);
+        // console.log(a, b, sign);
     }
 });
-
-
